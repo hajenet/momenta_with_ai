@@ -1,0 +1,37 @@
+{
+  "name": "voice-codex-vscode",
+  "displayName": "Voice Codex for VS Code",
+  "description": "Korean voice commands for sending prompts to a coding assistant.",
+  "version": "0.1.0",
+  "publisher": "momenta-with-ai",
+  "license": "MIT",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:voiceCodex.open",
+    "onCommand:voiceCodex.start",
+    "onCommand:voiceCodex.stop"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "voiceCodex.open", "title": "Voice Codex: Open Voice Panel" },
+      { "command": "voiceCodex.start", "title": "Voice Codex: Start Listening" },
+      { "command": "voiceCodex.stop", "title": "Voice Codex: Stop Listening" }
+    ],
+    "viewsContainers": {
+      "activitybar": [{ "id": "voiceCodex", "title": "Voice Codex", "icon": "media/microphone.svg" }]
+    },
+    "views": {
+      "voiceCodex": [{ "type": "webview", "id": "voiceCodex.panel", "name": "Voice Commands" }]
+    },
+    "keybindings": [{ "command": "voiceCodex.open", "key": "ctrl+alt+v" }],
+    "menus": {
+      "commandPalette": [
+        { "command": "voiceCodex.open" },
+        { "command": "voiceCodex.start" },
+        { "command": "voiceCodex.stop" }
+      ]
+    }
+  }
+}
